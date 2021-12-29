@@ -169,6 +169,23 @@ const NextIcon = ({ size }) => {
   );
 };
 
+const PlayIcon = ({ size }) => {
+  return (
+    <svg
+      role="img"
+      height={size}
+      width={size}
+      viewBox="0 0 24 24"
+      className="Svg-sc-1bi12j5-0 hDgDGI"
+    >
+      <polygon
+        points="21.57 12 5.98 3 5.98 21 21.57 12"
+        fill="currentColor"
+      ></polygon>
+    </svg>
+  );
+};
+
 const Icon = ({ name, size = 24 }) => {
   const icons = {
     home: HomeIcon,
@@ -181,6 +198,7 @@ const Icon = ({ name, size = 24 }) => {
     next: NextIcon,
     downDir: DownDirIcon,
     external: ExternalIcon,
+    play: PlayIcon,
   };
   const Component = icons[name];
   return <Component size={size} />;
