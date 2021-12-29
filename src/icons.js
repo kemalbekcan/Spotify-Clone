@@ -19,8 +19,8 @@ const SearchIcon = ({ size }) => {
   return (
     <svg
       role="img"
-      height="24"
-      width="24"
+      height={size}
+      width={size}
       className="Svg-sc-1bi12j5-0 hDgDGI search-icon"
       viewBox="0 0 24 24"
     >
@@ -37,8 +37,8 @@ const CollectionIcon = ({ size }) => {
   return (
     <svg
       role="img"
-      height="24"
-      width="24"
+      height={size}
+      width={size}
       className="Svg-sc-1bi12j5-0 hDgDGI collection-icon"
       viewBox="0 0 24 24"
     >
@@ -54,8 +54,8 @@ const PlusIcon = ({ size }) => {
   return (
     <svg
       role="img"
-      height="12"
-      width="12"
+      height={size}
+      width={size}
       aria-hidden="true"
       viewBox="0 0 16 16"
       className="Svg-sc-1bi12j5-0 hDgDGI"
@@ -70,8 +70,8 @@ const HeartIcon = ({ size }) => {
   return (
     <svg
       role="img"
-      height="12"
-      width="12"
+      height={size}
+      width={size}
       aria-hidden="true"
       viewBox="0 0 16 16"
       className="Svg-sc-1bi12j5-0 hDgDGI"
@@ -89,8 +89,8 @@ const DownloadIcon = ({ size }) => {
   return (
     <svg
       role="img"
-      height="24"
-      width="24"
+      height={size}
+      width={size}
       viewBox="0 0 24 24"
       className="Svg-sc-1bi12j5-0 hDgDGI"
     >
@@ -98,6 +98,73 @@ const DownloadIcon = ({ size }) => {
         fill="currentColor"
         d="M11.5 0C5.149 0 0 5.148 0 11.5 0 17.851 5.149 23 11.5 23S23 17.851 23 11.5C23 5.148 17.851 0 11.5 0zm0 22C5.71 22 1 17.29 1 11.5S5.71 1 11.5 1 22 5.71 22 11.5 17.29 22 11.5 22zm.499-6.842V5h-1v10.149l-3.418-3.975-.758.652 4.678 5.44 4.694-5.439-.757-.653-3.439 3.984z"
       ></path>
+    </svg>
+  );
+};
+
+const DownDirIcon = ({ size }) => {
+  return (
+    <svg
+      role="img"
+      height={size}
+      width={size}
+      viewBox="0 0 16 16"
+      className="Svg-sc-1bi12j5-0 hDgDGI"
+    >
+      <path fill="currentColor" d="M3 6l5 5.794L13 6z"></path>
+    </svg>
+  );
+};
+
+const ExternalIcon = ({ size }) => {
+  return (
+    <svg
+      role="img"
+      height={size}
+      width={size}
+      viewBox="0 0 16 16"
+      className="Svg-sc-1bi12j5-0 hDgDGI"
+    >
+      <path
+        fill="currentColor"
+        d="M15 7V1H9v1h4.29L7.11 8.18l.71.71L14 2.71V7h1zM1 15h12V9h-1v5H2V4h5V3H1v12z"
+      ></path>
+    </svg>
+  );
+};
+
+const PrevIcon = ({ size }) => {
+  return (
+    <svg
+      role="img"
+      height={size}
+      width={size}
+      viewBox="0 0 24 24"
+      className="Svg-sc-1bi12j5-0 hDgDGI"
+    >
+      <polyline
+        points="16 4 7 12 16 20"
+        fill="none"
+        stroke="currentColor"
+      ></polyline>
+    </svg>
+  );
+};
+
+const NextIcon = ({ size }) => {
+  return (
+    <svg
+      role="img"
+      height={size}
+      width={size}
+      viewBox="0 0 24 24"
+      className="Svg-sc-1bi12j5-0 hDgDGI"
+    >
+      <polyline
+        points="8 4 17 12 8 20"
+        fill="none"
+        stroke="currentColor"
+      ></polyline>
     </svg>
   );
 };
@@ -110,6 +177,10 @@ const Icon = ({ name, size = 24 }) => {
     plus: PlusIcon,
     heart: HeartIcon,
     download: DownloadIcon,
+    prev: PrevIcon,
+    next: NextIcon,
+    downDir: DownDirIcon,
+    external: ExternalIcon,
   };
   const Component = icons[name];
   return <Component size={size} />;
