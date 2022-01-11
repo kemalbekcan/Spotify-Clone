@@ -4,8 +4,9 @@ A Spotify Clone which you can sign in with your Google Account and send realtime
 
 ## Topics
 
-- React Context API -Redux
+- React Context API - Redux
 - Tailwind Css
 - React Hooks
 - Flexbox
 - Responsive Design
+- React Range
