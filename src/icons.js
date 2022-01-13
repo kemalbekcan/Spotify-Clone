@@ -189,13 +189,11 @@ const PlayIcon = ({ size }) => {
       role="img"
       height={size}
       width={size}
-      viewBox="0 0 24 24"
-      className="Svg-sc-1bi12j5-0 hDgDGI"
+      viewBox="0 0 16 16"
+      class="Svg-sc-1bi12j5-0 hDgDGI"
     >
-      <polygon
-        points="21.57 12 5.98 3 5.98 21 21.57 12"
-        fill="currentColor"
-      ></polygon>
+      <path fill="none" d="M0 0h16v16H0z" />
+      <path d="M3 2h3v12H3zm7 0h3v12h-3z" />
     </svg>
   );
 };

@@ -10,6 +10,7 @@ A Spotify Clone which you can sign in with your Google Account and send realtime
 - Flexbox
 - Responsive Design
 - React Range
+- React Use
 
 ## Run
 
