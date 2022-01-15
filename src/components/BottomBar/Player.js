@@ -2,11 +2,15 @@ import { Icon } from "../../icons";
 import { useAudio } from "react-use";
 import { secondsToTime } from "../../utils";
 import CustomRange from "../CustomRange";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setControls } from "../../stores/player";
 
 function Player() {
+  const dispatch = useDispatch();
+  const { current } = useSelector((state) => state.player);
   const [audio, state, controls, ref] = useAudio({
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    src: current?.src,
   });
 
   const volumeIcon = useMemo(() => {
@@ -15,6 +19,14 @@ function Player() {
     if (state.volume >= 0.33 && state.volume < 0.66) return "volumeNormal";
     return "volumeFull";
   }, [state.volume, state.muted]);
+
+  useEffect(() => {
+    controls.play();
+  }, [current]);
+
+  useEffect(() => {
+    dispatch(setControls(controls));
+  }, []);
 
   return (
     <div className="flex px-4 justify-between items-center h-full">
