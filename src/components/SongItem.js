@@ -1,11 +1,11 @@
 import { Icon } from "../icons";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurent } from "../stores/player";
+import { setControls, setCurent } from "../stores/player";
 
 function SongItem({ item }) {
   const dispatch = useDispatch();
-  const { current } = useSelector((state) => state.player);
+  const { current, playing, controls } = useSelector((state) => state.player);
   const imageStyle = (item) => {
     switch (item.type) {
       case "artist":
@@ -18,8 +18,18 @@ function SongItem({ item }) {
   };
 
   const updateCurrent = () => {
-    dispatch(setCurent(item));
+    if (current.id) {
+      if (playing) {
+        controls.pause();
+      } else {
+        controls.play();
+      }
+    } else {
+      dispatch(setCurent(item));
+    }
   };
+
+  const isCurrent = current.id === item.id && playing;
 
   return (
     <NavLink
@@ -36,9 +46,11 @@ function SongItem({ item }) {
         />
         <button
           onClick={updateCurrent}
-          className="w-10 h-10 rounded-full bg-primary absolute group-hover:flex group-focus:flex bottom-2 right-2 items-center justify-center hidden"
+          className={`w-10 h-10 rounded-full bg-primary absolute group-hover:flex group-focus:flex bottom-2 right-2 items-center justify-center ${
+            !isCurrent ? "hidden" : "flex"
+          }`}
         >
-          <Icon name={current?.id === item.id ? "play" : "pause"} size={16} />
+          <Icon name={isCurrent ? "pause" : "play"} size={16} />
         </button>
       </div>
       <h6 className="overflow-hidden overflow-ellipsis whitespace-nowrap text-base font-semibold">
